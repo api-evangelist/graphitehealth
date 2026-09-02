@@ -1,0 +1,29 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.graphitehealth.io/members
+note: >-
+  Graphite Health publishes NO pricing page and NO plans. It is a 501(c)(4) member-led
+  non-profit: access is via health-system membership and a marketplace agreement, both
+  negotiated through a contact form. /pricing does not exist on the site, the sitemap
+  lists no pricing URL, and the marketplace and platform pages carry a "Contact us"
+  call to action in place of any tier, quota or rate card. This is a genuine absence,
+  not an unread page.
+model: membership / contact-sales
+plan_count: 0
+plans: []
+access_path:
+- step: Health systems join as members
+  url: https://www.graphitehealth.io/members
+  status: 200
+- step: Application developers engage the marketplace / Graphite Labs by contact form
+  url: https://www.graphitehealth.io/marketplace
+  status: 200
+- step: All commercial terms negotiated directly
+  url: https://www.graphitehealth.io/contact
+  status: 200
+probes:
+- url: https://www.graphitehealth.io/pricing
+  status: 404
+- url: https://www.graphitehealth.io/sitemap-0.xml
+  status: 200
+  result: 44 URLs, none pricing-related

@@ -1,0 +1,43 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.graphitehealth.io/about/trust-security
+trust_center:
+  present: true
+  url: https://www.graphitehealth.io/about/trust-security
+  status: 200
+  type: static trust page (not a hosted trust portal — no Vanta/Drata/SafeBase/Conveyor instance)
+  self_serve_documents: false
+  document_request: https://www.graphitehealth.io/contact
+certifications:
+- name: SSAE 18 SOC 2 Type 1
+  status: achieved
+  evidence: 'Graphite has earned SSAE 18 SOC2 Type 1 certification'
+  report_available: on request via /contact
+- name: SSAE 18 SOC 2 Type 2
+  status: in progress
+  evidence: 'expects to achieve Type 2 within the year'
+  report_available: false
+frameworks:
+- name: NIST SP 800-218 (Secure Software Development Framework)
+  status: adopted
+  evidence: 'We have fully adopted NIST 800-218, the Secure Software Development Framework.'
+programs:
+- name: Digital Hippocratic Oath (DHO)
+  description: >-
+    Graphite's own operational ethics framework and marketplace certification. Graphite
+    and its member health systems commit to operating under the DHO, and every
+    application sold on the Graphite Marketplace must comply with standards established
+    to support it.
+  scope: Graphite, member health systems, and all marketplace applications
+- name: Secure Supply Chain
+  description: >-
+    Security requirements extended to vendors, partners, members, and business
+    associates.
+- name: Responsible Disclosure
+  description: See security/graphitehealth-vulnerability-disclosure.yml
+privacy:
+  policy: https://www.graphitehealth.io/privacy
+  status: 200
+terms:
+  url: https://www.graphitehealth.io/terms-of-use
+  status: 200

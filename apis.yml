@@ -1,17 +1,37 @@
 aid: graphitehealth
-name: GraphiteHealth
-description: 'GraphiteHealth is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition)
-  and added to the network as a stub for full-pipeline profiling.'
+name: Graphite Health
+description: >-
+  Graphite Health is a member-led, non-profit 501(c)(4) health-data infrastructure
+  company founded by Intermountain Health, Presbyterian Healthcare Services and SSM
+  Health, later joined by Kaiser Permanente and Emory Healthcare. It operates a platform
+  that ingests, standardizes and integrates clinical data across member health systems —
+  a connector library for clinical and external systems, a single interoperable data
+  model, managed container runtimes, developer APIs and a data sandbox — and governs the
+  S2 standard, an information standard encoding the operational semantics of health data
+  whose adoption is funded by Gates Ventures. On top of the platform it runs an
+  application marketplace whose apps must be certified under Graphite's Digital
+  Hippocratic Oath. As of this profiling pass Graphite publishes no public developer
+  documentation and no machine-readable contract; its FHIR, platform-core and identity
+  hosts exist in DNS but refuse connections from the public internet.
 url: https://raw.githubusercontent.com/api-evangelist/graphitehealth/refs/heads/main/apis.yml
+image: https://www.graphitehealth.io/img/logo-alt.svg
 x-type: company
 x-source: harvest:openehr-coalition
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
+- Healthcare
+- Health Data
+- Interoperability
+- Clinical Data
+- FHIR
+- openEHR
+- Data Standards
+- Marketplace
+- Non-Profit
+- Digital Health
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,3 +41,62 @@ maintainers:
 common:
 - type: Website
   url: https://www.graphitehealth.io/
+- type: Support
+  url: https://www.graphitehealth.io/contact
+- type: Blog
+  url: https://www.graphitehealth.io/news
+- type: GitHubOrganization
+  url: https://github.com/graphitehealth
+- type: TermsOfService
+  url: https://www.graphitehealth.io/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.graphitehealth.io/privacy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/graphite-health/
+- type: Twitter
+  url: https://twitter.com/graphite_health
+- type: LLMsTxt
+  url: llms/graphitehealth-llms.txt
+- type: Packages
+  url: packages/graphitehealth-packages.yml
+- type: Conformance
+  url: conformance/graphitehealth-conformance.yml
+- type: Compliance
+  url: conformance/graphitehealth-conformance.yml
+- type: DomainSecurity
+  url: security/graphitehealth-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/graphitehealth-vulnerability-disclosure.yml
+- type: Security
+  url: security/graphitehealth-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/graphitehealth-trust-center.yml
+- type: Plans
+  url: plans/graphitehealth-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/graphitehealth-rate-limits.yml
+x-enrichment:
+  date: '2026-09-02'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Graphite Health markets developer APIs, an SDK and a data sandbox on /platform and
+    /marketplace, but /developers is a 308 redirect to that marketing page whose only
+    call to action is a contact form — and the three API-shaped hosts that do exist in
+    DNS (fhir.graphitehealth.io, labs-core.graphitehealth.io, id.graphitehealth.io) all
+    refuse TCP 443 from the public internet, so the platform is reachable only from
+    inside member health-system networks.
+  evidence:
+  - url: https://www.graphitehealth.io/developers
+    status: 308
+  - url: https://www.graphitehealth.io/marketplace
+    status: 200
+  - url: https://fhir.graphitehealth.io/metadata
+    status: 0
+  - url: https://www.graphitehealth.io/.well-known/api-catalog
+    status: 404
+  checked: '2026-09-02'

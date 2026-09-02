@@ -1,0 +1,21 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.graphitehealth.io/platform
+note: >-
+  No rate limits are documented. Graphite Health publishes no developer documentation,
+  no API reference and no machine-readable contract, so there is nothing stating a
+  quota, a window, a burst allowance, an exhaustion status code or a response header.
+  The limits could not be observed live either: the only API-shaped hosts that exist in
+  DNS (fhir.graphitehealth.io, labs-core.graphitehealth.io, id.graphitehealth.io) are
+  firewalled at TCP 443, so no unauthenticated response could be read. An honest zero.
+limit_count: 0
+rate_limits: []
+response_headers: []
+exhaustion_status: null
+probes:
+- url: https://www.graphitehealth.io/developers
+  status: 308
+  result: redirects to /marketplace; no developer reference exists
+- url: https://fhir.graphitehealth.io/metadata
+  status: '<no response>'
+  result: TCP 443 connection timed out after 15s (host filtered)

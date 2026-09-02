@@ -1,0 +1,127 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.graphitehealth.io/about/trust-security
+note: >-
+  Graphite Health publishes compliance and secure-development claims in prose on its
+  Trust & Security page. NO machine-readable contract is published, so every
+  interoperability claim below is recorded as UNVERIFIED against a spec — the marketing
+  copy names FHIR and an in-house "S2" standard, but there is no OpenAPI, FHIR
+  CapabilityStatement, GraphQL SDL or AsyncAPI to check it against. The one FHIR host
+  that exists in DNS (fhir.graphitehealth.io) is firewalled at TCP 443.
+conformance:
+- id: soc2-type-1
+  conforms: true
+  evidence:
+    type: published-certification
+    statement: 'Graphite has earned SSAE 18 SOC2 Type 1 certification and expects to achieve Type 2 within the year.'
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+    asset: https://www.graphitehealth.io/img/logos/SOC2logo.svg
+- id: soc2-type-2
+  conforms: false
+  evidence:
+    type: stated-intent
+    statement: 'expects to achieve Type 2 within the year'
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+- id: nist-800-218-ssdf
+  conforms: true
+  evidence:
+    type: published-claim
+    statement: 'We have fully adopted NIST 800-218, the Secure Software Development Framework.'
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+- id: hipaa
+  conforms: unverified
+  evidence:
+    type: sector-inference
+    statement: >-
+      Graphite Health handles US provider-system clinical data for member health
+      systems, which places it in HIPAA scope as a business associate, but the site
+      makes no explicit HIPAA/BAA statement and no attestation is published.
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+- id: hitrust
+  conforms: false
+  evidence:
+    type: absent
+    statement: no HITRUST certification claimed anywhere on the public site
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+- id: iso-27001
+  conforms: false
+  evidence:
+    type: absent
+    statement: no ISO 27001 certification claimed anywhere on the public site
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+- id: oauth2
+  conforms: unverified
+  evidence:
+    type: absent
+    statement: >-
+      No OAuth/OIDC discovery document is served. /.well-known/openid-configuration and
+      /.well-known/oauth-authorization-server both 404 on www; id.graphitehealth.io
+      exists in DNS but TCP 443 is filtered, so the authorization surface cannot be read.
+    url: https://www.graphitehealth.io/.well-known/openid-configuration
+    status: 404
+domain_standards:
+- id: fhir
+  conforms: unverified
+  market: healthcare interoperability
+  evidence:
+    type: marketing-claim-only
+    statement: >-
+      'data available through modern, standard-based APIs using common interoperability
+      standards, such as FHIR' — stated in company positioning, not declared by any
+      published contract. No CapabilityStatement, no FHIR base URL, no ImplementationGuide.
+    url: https://www.graphitehealth.io/platform
+    status: 200
+    probe: https://fhir.graphitehealth.io/metadata
+    probe_status: '<no response> — TCP 443 connection timed out after 15s'
+- id: openehr
+  conforms: unverified
+  market: clinical information models
+  evidence:
+    type: personnel-and-lineage-signal
+    statement: >-
+      Thomas Beale, principal author of the openEHR Reference Model and Archetype
+      specifications, is on the Graphite Health team, and Graphite was surfaced to this
+      network through the openEHR coalition. Graphite does NOT publish openEHR archetypes,
+      templates, a CKM instance or an AQL endpoint on any public host, so no openEHR
+      conformance can be asserted from the contract.
+    url: https://www.graphitehealth.io/about/team/thomas-beale
+    status: 200
+- id: graphite-s2
+  conforms: unverified
+  market: healthcare data representation
+  evidence:
+    type: proprietary-standard-announced-not-published
+    statement: >-
+      Graphite describes S2 as 'a flexible and open information standard' encoding the
+      operational semantics of health data, and Gates Ventures funded its adoption. The
+      specification itself is not published at any public URL, in the GitHub organization,
+      or in any registry located by this pass — so it is an announced standard, not yet a
+      readable one.
+    url: https://www.graphitehealth.io/news/gates-ventures-propel-adoption-graphite-health-s2-standard
+    status: 200
+- id: digital-hippocratic-oath
+  conforms: true
+  market: healthcare data ethics
+  evidence:
+    type: published-program
+    statement: >-
+      'all applications sold on the Graphite Marketplace must comply with standards
+      established to further and support the DHO' — a first-party certification program
+      Graphite operates over its marketplace, described as 'a certification based on the
+      four pillars of medical ethics, updated for providing care in a digital environment'.
+    url: https://www.graphitehealth.io/about/trust-security
+    status: 200
+    asset: https://www.graphitehealth.io/img/logos/DHOlogo.svg
+- id: rfc9457
+  conforms: unverified
+  evidence:
+    type: absent
+    statement: no error format documented; no contract published
+    url: https://www.graphitehealth.io/marketplace
+    status: 200

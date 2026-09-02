@@ -1,0 +1,70 @@
+generated: '2026-09-02'
+method: probed
+source: live HTTPS probes of every reachable Graphite Health host
+note: >-
+  Every named /.well-known/ path returned HTTP 404 on the public host, and the
+  three technical hosts that exist in DNS could not be probed at all — TCP 443 is
+  filtered on each. NO WellKnown or SecurityTxt pointer is emitted: nothing was
+  served, so nothing is claimed.
+hit_count: 0
+path_echo_control: passed
+hosts:
+- host: https://www.graphitehealth.io
+  reachable: true
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog.json
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/ucp.json
+    status: 404
+    file: null
+  - path: /.well-known/acp.json
+    status: 404
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/graphitehealth-negative-control-7f3ab91c.json
+    status: 404
+    file: null
+    control: negative
+    result: passed
+- host: https://fhir.graphitehealth.io
+  reachable: false
+  dns: CNAME labs-core.graphitehealth.io -> 54.163.205.253
+  failure: TCP 443 connection timed out (filtered); no HTTP response
+  documents: []
+- host: https://labs-core.graphitehealth.io
+  reachable: false
+  dns: 54.163.205.253
+  failure: TCP 443 connection timed out (filtered); no HTTP response
+  documents: []
+- host: https://id.graphitehealth.io
+  reachable: false
+  dns: 44.199.17.64
+  failure: TCP 443 connection timed out (filtered); no HTTP response
+  documents: []

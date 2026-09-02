@@ -1,0 +1,47 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.graphitehealth.io/marketplace
+note: >-
+  Registry sweep found NO first-party Graphite Health client library. npm, PyPI,
+  RubyGems, crates.io, NuGet, Maven Central, pkg.go.dev and Packagist were searched
+  for "graphite-health" / "graphitehealth" / "@graphitehealth" and every hit belonged
+  to an unrelated project (the Graphite time-series metrics stack, Skia Graphite,
+  Stoplight Graphite, AWS Health). The GitHub organization github.com/graphitehealth
+  holds 5 public repositories and ALL FIVE ARE FORKS of third-party projects
+  (apache/polaris, provectus/kafka-ui, operator-framework/operator-sdk, and two CI
+  actions) — no first-party source is published. Graphite markets an SDK on
+  /platform ("application platform, software development kit, and marketplace") but
+  it is not distributed through any public registry as of this probe.
+package_count: 0
+packages: []
+registries_searched:
+- registry: npm
+  query: graphite-health / graphitehealth / "@graphitehealth"
+  result: no first-party package
+- registry: pypi
+  query: graphite-health, graphitehealth
+  result: 404 on both
+- registry: rubygems
+  query: graphite-health
+  result: no first-party package
+- registry: crates.io
+  query: graphite-health
+  result: no first-party package
+- registry: nuget
+  query: GraphiteHealth
+  result: no first-party package
+- registry: maven-central
+  query: io.graphitehealth
+  result: no first-party package
+- registry: pkg.go.dev
+  query: graphitehealth
+  result: no first-party package
+- registry: packagist
+  query: graphitehealth
+  result: no first-party package
+source_code:
+- host: https://github.com/graphitehealth
+  status: 200
+  public_repos: 5
+  first_party_repos: 0
+  note: all five public repositories are forks of unrelated upstream projects
